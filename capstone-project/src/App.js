@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import CardComponent from './components/card';
+import { useEffect, useState } from 'react';
 
-function App() {
+
+
+export default function Cards() {
+  const [notes, setNotes] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/notes')
+    .then(res => res.json())
+    .then(data => setNotes(data))
+}, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <Grid Container>
+      {card.map(card => (
+        <Grid item key={card.id} xs={12} md={6} lg={4}>
+          <CardComponent card={card} />
+      </Grid>
+      ))}
+      </Grid>
+    </Container>
+  )
 }
-
-export default App;
