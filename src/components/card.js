@@ -1,9 +1,9 @@
-import React from "react";
-
-export default function CardComponent({card}) {
+function Card() {
     return (
         <div>
-            Card
+            Test
         </div>
-    )
-}
+    );
+  }
+  
+  export default Card;
