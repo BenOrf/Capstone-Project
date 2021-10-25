@@ -1,17 +1,19 @@
-import { useState } from "react";
-import Card from "./Card";
+import Article from '../components/article/Article';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import '../assets/css/animation.css';
 
-function Base() {
-  
-    const [articles, setArticles] = useState([]);
-
+function Base({setArticles, articles}) {
     return (
-        <div style={{ height: 'calc(100vh - 8rem)' }}>
-            {articles.length && articles.map((articles) =>
-                <Card key={articles.id} name={articles}/>
-            )}
+        <div style={{ height: 'calc(100vh - 8rem)'}} className="overflow-auto">
+            <TransitionGroup component="div">
+                {articles.length > 0 && articles.map((article) => (
+                    <CSSTransition key={article} timeout={400} classNames="item">
+                        <Article setArticles={setArticles} name={article}/>
+                    </CSSTransition>
+                ))}
+            </TransitionGroup>
         </div>
-    );
+    )
 }
 
 export default Base;

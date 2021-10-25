@@ -1,9 +1,9 @@
 function Header() {
     return (
-        <div class="bg-gray-800 flex justify-center items-center h-16">
-            <p class="text-gray-100 text-xl font-semibold uppercase tracking-widest">Boughty</p>
+        <div className="bg-gray-800 h-16 flex items-center justify-center">
+            <p className="text-xl tracking-widest text-xl text-gray-100">Boughty</p>
         </div>
-    );
-  }
-  
-  export default Header;
+    )
+}
+
+export default Header;
