@@ -1,17 +1,32 @@
-import './App.css';
-import Header from './components/Header';
-import Base from './components/Base';
-import Navigation from './components/Navigation';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from "./views/Home";
+import CreateArticle from "./views/CreateArticle";
+import {useState} from "react";
 
 function App() {
-  return (
-    <Router>
-      <Header/>
-      <Base/>
-      <Navigation/>
-    </Router>
-  );
+
+    const [articles, setArticles] = useState([]);
+
+    return (
+        <Router>
+          <Route
+              path="/"
+              exact
+          >
+              <Home
+                  articles={articles}
+                  setArticles={setArticles}
+              />
+          </Route>
+          <Route
+              path="/create"
+          >
+              <CreateArticle
+                  setArticles={setArticles}
+              />
+          </Route>
+        </Router>
+    );
 }
 
 export default App;
