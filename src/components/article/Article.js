@@ -7,10 +7,9 @@ function Article({setArticles, article}) {
     return (
         <div className="w-full">
             <div className="m-3 bg-blue-100 rounded-md shadow-xl border border-gray-200 p-3 flex items-center justify-between">
-                <div className="flex">
+                <div className="flex justify-between w-full mr-3">
                     <p>{article.name}</p>
-                    <p className="px-2 font-bold">  </p>
-                    <p>{article.amount}</p>
+                    <p> Anzahl: {article.amount}</p>
                 </div>
                 <button
                     onClick={handleRemove}
