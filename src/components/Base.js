@@ -7,8 +7,8 @@ function Base({setArticles, articles}) {
         <div style={{ height: 'calc(100vh - 8rem)'}} className="overflow-auto">
             <TransitionGroup component="div">
                 {articles.length > 0 && articles.map((article) => (
-                    <CSSTransition key={article} timeout={400} classNames="item">
-                        <Article setArticles={setArticles} name={article}/>
+                    <CSSTransition key={article.name} timeout={400} classNames="item">
+                        <Article setArticles={setArticles} article={article}/>
                     </CSSTransition>
                 ))}
             </TransitionGroup>
