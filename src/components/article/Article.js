@@ -9,8 +9,8 @@ function Article({ setArticles, article }) {
     <div className="w-full">
       <div className="m-3 bg-blue-100 rounded-md shadow-xl border border-gray-200 p-3 flex items-center justify-between">
         <div className="flex justify-between w-full mr-3">
-          <p>{article.name}</p>
-          <p>{article.price} €</p>
+          <p className="w-1/3">{article.name}</p>
+          <p className="w-1/3">{article.price} €</p>
           <p> Anzahl: {article.amount}</p>
         </div>
         <button
