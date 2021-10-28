@@ -1,10 +1,16 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./views/Home";
 import CreateArticle from "./views/CreateArticle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function App() {
-  const [articles, setArticles] = useState([]);
+function App({ prevArticles }) {
+  const [articles, setArticles] = useState(
+    JSON.parse(localStorage.getItem("articles")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("articles", JSON.stringify(articles));
+  }, [articles]);
 
   return (
     <Router>

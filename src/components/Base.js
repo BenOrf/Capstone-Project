@@ -6,7 +6,7 @@ function Base({ setArticles, articles }) {
   function calculateSum() {
     let price = 0;
     articles.forEach((article) => {
-      price += parseFloat(article.price) * article.amount;
+      price += parseFloat(article.price.replace(",", ".")) * article.amount;
     });
     return price;
   }
