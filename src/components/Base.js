@@ -8,7 +8,7 @@ function Base({ setArticles, articles }) {
     articles.forEach((article) => {
       price += parseFloat(article.price.replace(",", ".")) * article.amount;
     });
-    return price;
+    return price.toFixed(2);
   }
 
   return (
