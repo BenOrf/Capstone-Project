@@ -11,12 +11,12 @@ it("renders", () => {
 it("calls a function when clicked", async () => {
   let wasCalled = false;
   render(<ArticleForm setArticles={() => (wasCalled = true)} />);
-  // const nameInput = screen.getByPlaceholderText("Brot");
-  // userEvent.type(nameInput, "test");
-  // const amountInput = screen.getByPlaceholderText("1");
-  // userEvent.type(amountInput, "2");
-  // const priceInput = screen.getByPlaceholderText("1,50");
-  // userEvent.type(priceInput, "5");
+  const nameInput = screen.getByPlaceholderText("Brot");
+  userEvent.type(nameInput, "test");
+  const amountInput = screen.getByPlaceholderText("1");
+  userEvent.type(amountInput, "2");
+  const priceInput = screen.getByPlaceholderText("1,50");
+  userEvent.type(priceInput, "5");
   const button = screen.getByRole("button");
   await fireEvent.click(button);
   expect(wasCalled).toBeTruthy();
