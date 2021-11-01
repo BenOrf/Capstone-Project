@@ -2,15 +2,15 @@ import Article from "../components/article/Article";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "../assets/css/animation.css";
 
-export const calculateSum = (articles) => {
-  let price = 0;
-  articles.forEach((article) => {
-    price += parseFloat(article.price.replace(",", ".")) * article.amount;
-  });
-  return price.toFixed(2);
-};
-
 function Base({ setArticles, articles }) {
+  const calculateSum = (articles) => {
+    let price = 0;
+    articles.forEach((article) => {
+      price += parseFloat(article.price.replace(",", ".")) * article.amount;
+    });
+    return price.toFixed(2);
+  };
+  const totalPrice = calculateSum(articles);
   return (
     <div style={{ height: "calc(100vh - 8rem)" }} className="overflow-auto">
       <TransitionGroup component="div">
@@ -21,9 +21,7 @@ function Base({ setArticles, articles }) {
             </CSSTransition>
           ))}
       </TransitionGroup>
-      <p className="px-3 text-2xl mt-4 text-gray-700">
-        Gesamt: {calculateSum()} €
-      </p>
+      <p className="px-3 text-2xl mt-4 text-gray-700">Gesamt: {totalPrice} €</p>
     </div>
   );
 }
