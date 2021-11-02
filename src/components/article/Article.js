@@ -1,8 +1,9 @@
-function Article({ setArticles, article }) {
+function Article({ setArticles, article, setDeletedArticles }) {
   function handleRemove() {
     setArticles((prevArticles) =>
       prevArticles.filter((item) => item.name !== article.name)
     );
+    setDeletedArticles((prevArticles) => [...prevArticles, article]);
   }
 
   return (
