@@ -1,6 +1,9 @@
 import { useState } from "react";
+import DeletedArticle from "./DeletedArticle";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "../../assets/css/animation.css";
 
-function ArticleForm({ setArticles }) {
+function ArticleForm({ setArticles, setDeletedArticles, deletedArticles }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("");
@@ -50,6 +53,21 @@ function ArticleForm({ setArticles }) {
         >
           Hinzufügen
         </button>
+      </div>
+      <div className="mt-8">
+        <p>Gelöschte Artikel</p>
+        <TransitionGroup component="div">
+          {deletedArticles.length > 0 &&
+            deletedArticles.map((article) => (
+              <CSSTransition key={article.name} timeout={400} classNames="item">
+                <DeletedArticle
+                  article={article}
+                  setArticles={setArticles}
+                  setDeletedArticles={setDeletedArticles}
+                />
+              </CSSTransition>
+            ))}
+        </TransitionGroup>
       </div>
     </div>
   );

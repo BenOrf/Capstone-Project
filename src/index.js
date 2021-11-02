@@ -7,7 +7,7 @@ import "./assets/css/tailwind.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App articles={JSON.parse(localStorage.getItem("prevArticles"))} />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -2,7 +2,7 @@ import Article from "../components/article/Article";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "../assets/css/animation.css";
 
-function Base({ setArticles, articles }) {
+function Base({ setArticles, articles, setDeletedArticles }) {
   const calculateSum = (articles) => {
     let price = 0;
     articles.forEach((article) => {
@@ -17,7 +17,11 @@ function Base({ setArticles, articles }) {
         {articles.length > 0 &&
           articles.map((article) => (
             <CSSTransition key={article.name} timeout={400} classNames="item">
-              <Article setArticles={setArticles} article={article} />
+              <Article
+                setArticles={setArticles}
+                article={article}
+                setDeletedArticles={setDeletedArticles}
+              />
             </CSSTransition>
           ))}
       </TransitionGroup>
